@@ -25,9 +25,9 @@ const Navbar = () => {
             current: true, 
             onClick: () => setIsRegisterOpen(true)
         },
-        { name: 'Services', href: '#services', current: false },
-        { name: 'About', href: '#about', current: false },
-        { name: 'Plan', href: '#plan', current: false },
+        { name: 'Services', href: 'services', current: false },
+        { name: 'About', href: 'about', current: false },
+        { name: 'Plan', href: 'plan', current: false },
     ];
 
     function classNames(...classes: string[]) {
