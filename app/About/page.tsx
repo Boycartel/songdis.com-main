@@ -1,6 +1,6 @@
 "use client";
-import MainLayout from './layouts/main-layout';
-import About from './components/About';
+import MainLayout from '../layouts/main-layout';
+import About from '../components/About';
 
 export default function Home() {
   return (
