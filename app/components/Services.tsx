@@ -1,6 +1,6 @@
-import React from "react";
+import { Music, Target, List, PlusSquare } from 'lucide-react'
 
-const Services: React.FC = () => {
+const Services = () => {
   return (
     <main>
       <div className="w-full">
