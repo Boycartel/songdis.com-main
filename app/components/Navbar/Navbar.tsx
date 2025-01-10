@@ -2,7 +2,6 @@ import { Disclosure } from '@headlessui/react';
 import { Bars3Icon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import React from 'react';
-import { useRouter } from 'next/router';
 import Drawer from "./Drawer";
 import Drawerdata from "./Drawerdata";
 
@@ -14,13 +13,20 @@ interface NavigationItem {
 }
 
 const Navbar = () => {
-    const router = useRouter();
+    const [isDrawerOpen, setIsDrawerOpen] = React.useState(false);
+    const [isSignInOpen, setIsSignInOpen] = React.useState(false);
+    const [isRegisterOpen, setIsRegisterOpen] = React.useState(false);
 
     const navigation: NavigationItem[] = [
-        { name: 'Distribute', href: '/', current: router.pathname === '/' },
-        { name: 'Services', href: '/services', current: router.pathname === '/services' },
-        { name: 'About', href: '/auth/about', current: router.pathname === '/auth/about' },
-        { name: 'Plan', href: '/plan', current: router.pathname === '/plan' },
+        {
+            name: 'Distribute',
+            href: '/',
+            current: true,
+            onClick: () => setIsRegisterOpen(true),
+        },
+        { name: 'Services', href: '/services', current: false },
+        { name: 'About', href: 'auth/about', current: true },
+        { name: 'Plan', href: '/plan', current: false },
     ];
 
     const classNames = (...classes: string[]) => classes.filter(Boolean).join(' ');
@@ -56,11 +62,15 @@ const Navbar = () => {
                                         key={item.name}
                                         href={item.href}
                                         className={classNames(
-                                            item.current
-                                                ? 'text-black hover:opacity-100'
-                                                : 'hover:text-black hover:opacity-100',
+                                            item.current ? 'text-black hover:opacity-100' : 'hover:text-black hover:opacity-100',
                                             'px-3 py-4 text-lg font-normal opacity-75 space-links'
                                         )}
+                                        onClick={(e) => {
+                                            if (item.onClick) {
+                                                e.preventDefault();
+                                                item.onClick();
+                                            }
+                                        }}
                                     >
                                         {item.name}
                                     </Link>
