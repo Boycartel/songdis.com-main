@@ -29,6 +29,7 @@ const Navbar = () => {
         { name: 'Plan', href: '/plan', current: false },
     ];
 
+    
     const classNames = (...classes: string[]) => classes.filter(Boolean).join(' ');
 
     return (
