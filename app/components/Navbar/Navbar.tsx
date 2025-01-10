@@ -25,7 +25,7 @@ const Navbar = () => {
             onClick: () => setIsRegisterOpen(true),
         },
         { name: 'Services', href: '/services', current: false },
-        { name: 'About', href: '/app/about', current: false },
+        { name: 'About', href: '/about', current: false },
         { name: 'Plan', href: '/plan', current: false },
     ];
 
